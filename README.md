@@ -1,81 +1,93 @@
-# Real-time-Process-Monitoring-Dashboard
-Real-time Process Monitoring Dashboard
+# System Monitor
 
-A Flask-based real-time system monitoring dashboard that displays CPU & Memory usage, along with process details. The UI is designed with a dark theme and neon accents for a modern look.
+A real-time system monitoring web application built with Flask and psutil that provides detailed insights into your system's performance, including CPU, memory, disk usage, and process management.
 
-Features
+## Features
 
-✅ Live CPU & Memory Usage Monitoring (Updated in real-time)
+- **Real-time System Metrics**
+  - CPU usage monitoring with moving average
+  - Memory usage tracking
+  - Disk space monitoring
+  - Network statistics
+  - Temperature monitoring (where supported)
 
-✅ Graphical Representation using Chart.js
+- **Process Management**
+  - View running processes
+  - Sort processes by CPU/memory usage
+  - Terminate processes (with proper permissions)
 
-✅ Process Table showing the top 10 processes
+- **Health Monitoring**
+  - System health score calculation
+  - Alert system for critical conditions
+  - Historical alert tracking
 
-✅ Process Termination (Kill button to stop a process)
+- **User Interface**
+  - Clean, modern dashboard
+  - Real-time updates
+  - Responsive design
 
-✅ Dark Theme with Neon UI
+## Prerequisites
 
-Tech Stack
+- Python 3.7 or higher
+- pip (Python package installer)
 
-Frontend: HTML, CSS, JavaScript (Chart.js for graphs)
+## Installation
 
-Backend: Flask (Python)
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/system-monitor.git
+cd system-monitor
+```
 
-System Stats: psutil (CPU & Memory monitoring)
-
-Installation & Setup
-
-1️⃣ Clone the Repository
-
-bash
-
-git clone https://github.com/Akshita42/Real-time-Process-Monitor.git
-cd Real-time-Process-Monitor
-
-2️⃣ Create a Virtual Environment (Optional but Recommended)
-
-bash
-
+2. Create a virtual environment (recommended):
+```bash
 python -m venv venv
-source venv/bin/activate  # For Mac/Linux
-venv\Scripts\activate     # For Windows
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+```
 
-3️⃣ Install Dependencies
-
-bash
-
+3. Install dependencies:
+```bash
 pip install -r requirements.txt
+```
 
-4️⃣ Run the Flask Server
+## Usage
 
-bash
-
+1. Start the application:
+```bash
 python app.py
+```
 
-➡ Open http://127.0.0.1:5000/ in your browser
+2. Open your web browser and navigate to:
+```
+http://localhost:5000
+```
 
-How It Works
+## API Endpoints
 
-🔹 The Flask backend fetches system stats using psutil and sends JSON data to the frontend.
+- `GET /` - Main dashboard
+- `GET /stats` - Get system statistics
+- `POST /kill/<pid>` - Terminate a process
+- `GET /debug/cpu` - Debug CPU measurements
 
-🔹 The UI updates dynamically to reflect CPU/memory usage and process details.
+## Configuration
 
-🔹 Clicking the Kill button terminates a selected process.
+The application uses default thresholds for alerts:
+- CPU: Warning (70%), Critical (90%)
+- Memory: Warning (70%), Critical (90%)
+- Disk: Warning (70%), Critical (90%)
+- Temperature: Warning (70°C), Critical (85°C)
 
-Screenshots
+## Security Considerations
 
-📌 Include a screenshot of your dashboard here
+- Process termination requires proper system permissions
+- The application should be run with appropriate user privileges
+- Consider using HTTPS in production environments
 
-Future Enhancements
 
-🚀 Add disk & network usage stats
 
-🚀 Improve process management (pause, resume, priority adjustment)
 
-🚀 Implement user authentication for access control
 
-Contributing
-Feel free to fork this project, create issues, or submit pull requests! 🎉
+## Acknowledgments
 
-License
-No Licsence 
+- [Flask](https://flask.palletsprojects.com/) - Web framework
+- [psutil](https://psutil.readthedocs.io/) - System monitoring library 
